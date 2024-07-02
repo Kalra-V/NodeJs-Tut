@@ -1,7 +1,4 @@
-const http = require('http');
+var colors = require('colors');
+var chalk = require('chalk');
 
-http.createServer( (req,res) => {
-    res.write("<h1>Hello from node env</h1>");
-    res.end(); 
-}).listen(4500);
-
+console.log(chalk.blue("Hello"));
