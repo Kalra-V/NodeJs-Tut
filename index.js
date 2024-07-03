@@ -1,25 +1,10 @@
-const fs = require('fs');
-const path = require('path');
-const dirPath = path.join(__dirname,'crud');
-const filePath = `${dirPath}/apple.txt`
+const express = require('express')
+const app = express();
+app.get('', (req, res) => {
+    res.send('Hello, from express MF.')
+})
+app.get('/about', (req, res) => {
+    res.send('Hello, from about AND express MF.')
+})
 
-// CREATE FILE
-// fs.writeFileSync(filePath, 'file content');
-
-//READ FILE
-// fs.readFile(filePath,'utf-8' ,(err, item) => {
-//     console.log(item)
-// })
-
-// UPDATE FILE
-// fs.appendFile(filePath, ' while this is new file content appended', (err) => {
-//     if(!err) console.log("File is updated!"); 
-// })
-
-//RENAME FILE
-// fs.rename(filePath, `${dirPath}/fruit.txt`, (err) => {
-//     if(!err) console.log("File has been renamed!")
-// })
-
-//DELETE FILE
-fs.unlinkSync(`${dirPath}/fruit.txt`)
+app.listen(5000)
