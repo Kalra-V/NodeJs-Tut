@@ -1,5 +1,7 @@
-var colors = require('colors');
-var chalk = require('chalk');
-
-console.log(chalk.blue("Hello FROM NODEMON MF Okay "));
-console.log("120".red)
+const http = require('http');
+const data = require('./data')
+http.createServer( (req, resp) => {
+resp.writeHead(200, {'Content-Type' : 'application\json'});
+resp.write(JSON.stringify(data));
+resp.end();
+}).listen(5000);
