@@ -17,4 +17,13 @@ app.post('/', async (req, res) => {
     res.send(result)
 })
 
+app.put("/", async (req, res) => {
+    let data = await dbConnect();
+    let result = await data.updateOne({name: req.body.name}, 
+        { $set:req.body });
+    console.log(req.body)
+    console.log("Updated successfully.")
+    res.send({result:"updated"})
+})
+
 app.listen(5000)
