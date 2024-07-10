@@ -1,20 +1,7 @@
-const express = require("express");
-const multer = require("multer");
-const app = express();
-
-const upload = multer({
-  storage: multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, "uploads");
-    },
-    filename: function (req, file, cb) {
-      cb(null, file.fieldname + "-" + Date.now() + ".jpg");
-    },
-  }),
-}).single("user_file");
-
-app.post("/upload", upload, async (req, res) => {
-  res.send("Working");
-});
-
-app.listen(5000);
+const os = require('os')
+// console.log(os.arch()) FOR checking 32 bit or 64 bit
+// console.log(os.freemem()/(1024*1024*1024))  // RAM KITNI FREE HAI IN THE SYSTEM, IN BYTES
+// console.log(os.totalmem()/(1024*1024*1024)) TOTAL RAM KITNI HAI
+// console.log(os.hostname()) NAME OF DESKTOP
+// console.log(os.platform()) OS PLATFORM - Win32, macOS
+// console.log(os.userInfo()) INFO ABOUT THE USER 
