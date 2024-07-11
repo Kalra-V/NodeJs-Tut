@@ -30,4 +30,12 @@ app.put("/:name", (req,res) => {
     })
 })
 
+app.delete("/:id", (req,res) => {
+    conn.query("DELETE FROM user WHERE id =" + req.params.id, (err, result) => {
+        if(err) throw err;
+        res.send(result)
+    })
+
+})
+
 app.listen(5000);
