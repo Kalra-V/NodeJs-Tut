@@ -17,7 +17,15 @@ app.get("/", (req,res) => {
 app.post("/", (req,res) => {
     const data = req.body;
     conn.query("insert into user set ?", data, (err,result,fields) =>{
-        if(err) err;
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
+app.put("/:name", (req,res) => {
+    const data = [req.body.name, req.body.id, req.params.name]
+    conn.query("update user set name = ?, id = ? where name = ?", data, (err, result, fields) => {
+        if(err) throw err;
         res.send(result)
     })
 })
